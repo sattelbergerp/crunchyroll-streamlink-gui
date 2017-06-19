@@ -1,0 +1,11 @@
+{
+  "name": "crunchyroll-streamlink-gui",
+  "version": "1.0.0",
+  "description": "A gui frontend for playing crunchyroll videos through streamlink a fork of livestreamer.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Patrick Sattelberger",
+  "license": "MIT"
+}

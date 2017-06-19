@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Crunchyroll Gui</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/photon.min.css">
+		<link rel="stylesheet" href="css/index.css">
+
+  </head>
+  <body>
+    <div class="window">
+			<header class="toolbar toolbar-header">
+				<div class="toolbar-actions">
+					<button class="btn btn-default pull-right" onclick="showSettings()"><span class="icon icon-cog"></span></button>
+					<button class="btn btn-default pull-right" onclick="showLogin()" id="login-btn"><span class="icon icon-user"></span></button>
+				</div>
+			</header>
+			<div class="window-content">
+				<div class="pane-group">
+					<div class="pane-sm sidebar loader-parent">
+						<div class="loader" id="show-list-loader"></div>
+						<div class="list-group-header">
+							<input class="form-control" id="show-list-search" oninput="searchShows()" type="text" placeholder="Search Shows...">
+						</div>
+						<ul class="list-group" id="show-list">
+							<a href="javascript:fetchShows()">load</a>
+						</ul>
+					</div>
+					<div class="pane loader-parent">
+						<div class="cover" id="show-view-loader">
+							<div class="loader"></div>
+						</div>
+						<webview id="show-view" class="fill" preload="./js/injector.js"></webview>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--Dialogs-->
+		<!--Error Dialog-->
+		<div class="popup-container" id="error-popup">
+			<div class="popup">
+				<header class="error-header">
+					<span id="error-title">Error</span>
+					<span class="title close" onclick="hideError()">&times;</span>
+				</header>
+				<p id="error-content"></p>
+				<footer class="popup-buttons">
+					<button onclick="hideError()" class="popup-btn btn btn-default">Ok</button>
+				</footer>
+			</div>
+		</div>
+		<!--Settings Dialog-->
+		<div class="popup-container" id="settings-popup">
+			<div class="popup">
+				<header class="settings-header">
+					<span id="settings-title">Settings</span>
+					<span class="title close" onclick="hideSettings()">&times;</span>
+				</header>
+				<div id="settings-content">
+					<div class="form-group">
+						<label for="player-command">Player Command: </label>
+						<input type="text" id="player-command" class="form-control">
+						<label for="cr-session-id">Crunchyroll Session Id (Debug): </label>
+						<input type="text" id="cr-session-id" class="form-control" readonly>
+					</div>
+				</div>
+				<footer class="popup-buttons">
+					<button onclick="hideSettings()" class="popup-btn btn btn-default">Ok</button>
+				</footer>
+			</div>
+		</div>
+  </body>
+	<!-- Javascript -->
+	<script src="js/api.js" charset="utf-8"></script>
+	<script src="js/view.js" charset="utf-8"></script>
+	<script src="js/settings.js" charset="utf-8"></script>
+	<script src="js/loginmanager.js" charset="utf-8"></script>
+	<script src="js/index.js" charset="utf-8"></script>
+
+</html>
